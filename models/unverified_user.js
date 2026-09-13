@@ -1,11 +1,11 @@
-import { DataTypes }  from "@sequelize/core";
-import sequelize  from "../config/database.js";
+import { DataTypes } from "@sequelize/core";
+import sequelize from "../config/database.js";
 
 
 
-const User = sequelize.define(
+const Unverified_User = sequelize.define(
 
-    "User",
+    "Unverified_User",
     {
 
         id: {
@@ -29,16 +29,20 @@ const User = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        otp_verify:{
+        otp: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        otp_verify: {
             type: DataTypes.BOOLEAN,
-            defaultValue:false,
+            defaultValue: false,
         }
 
 
 
 
     }, {
-    tableName: "users",
+    tableName: "unverified_user",
     timestamps: true,
 }
 
@@ -50,4 +54,4 @@ const User = sequelize.define(
 
 )
     ;
-export default User;
+export default Unverified_User;
